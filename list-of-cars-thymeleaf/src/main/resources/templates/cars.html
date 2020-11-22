@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm.min.css">
+</head>
+<body>
+<main>
+    <h4>Cars</h4>
+    <br/>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Mark</th>
+            <th>Model</th>
+            <th>Color</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car:${cars}">
+            <td th:text="${car.getId()}"/>
+            <td th:text="${car.getMark()}"/>
+            <td th:text="${car.getModel()}"/>
+            <td th:text="${car.getColor()}"/>
+            <td>
+                <a th:href="@{add-car-view}">Add car</a>
+            </td>
+            <td>
+                <a th:href="@{delete-car/__${car.id}__}">Delete</a>
+            </td>
+            <td>
+                <a th:href="@{update-view/__${car.id}__}">Update</a>
+            </td>
+            <td>
+                <a th:href="@{details-car-view/__${car.id}__}">Details</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+
+</body>
+</html>

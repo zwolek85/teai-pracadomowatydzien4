@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm.min.css">
+</head>
+<body>
+<main>
+    <h4>Details car</h4>
+    <br/>
+    <form th:action="@{/details-car-add-description/__${carDetails.id}__}" th:object="${carDetails}" method="post">
+        <p>Id:      <label th:text="*{id}"/>       </p>
+        <p>Mark:    <label th:text="*{mark}"/>     </p>
+        <p>Model:   <label th:text="*{model}"/>    </p>
+        <p>Color:   <label th:text="*{color}"/>    </p>
+        <p>Description: </p>
+        <p> <textarea th:field="*{description}"/></p>
+        <p><input type="submit" value="Add description"></p>
+    </form>
+    <p> <a th:href="@{~/cars}">Car list</a></p>
+</main>
+
+</body>
+</html>

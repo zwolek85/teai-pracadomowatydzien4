@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm.min.css">
+</head>
+<body>
+<main>
+    <h4>Update car</h4>
+    <br/>
+    <form th:action="@{/update-car}" th:object="${carToUpdate}" method="post">
+        <p>Id:    <input type="text" th:field="*{id}" readonly="readonly">  </p>
+        <p>Mark:  <input type="text" th:field="*{mark}"></p>
+        <p>Model: <input type="text" th:field="*{model}"></p>
+        <p>Color:
+            <select th:field="*{color}">
+                <option th:each="colorOpt : ${T(pl.zwolek.listofcarsthymeleaf.enums.Color).values()}"
+                        th:value="${colorOpt}" th:text="${colorOpt}"></option>
+            </select>
+        </p>
+        <p><input type="submit" value="update car"></p>
+        <p> <a th:href="@{~/cars}">Car list</a></p>
+    </form>
+</main>
+
+</body>
+</html>
